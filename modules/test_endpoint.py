@@ -6,7 +6,7 @@ from requests.models import HTTPError
 def isEndPointUp(log,endpoint):
     log.info("[isEndPointUp] Start")
     try:
-        get=requests.get(endpoint)
+        get=requests.get(endpoint, timeout=60)
     except HTTPError as http_err:
         print(f'HTTP error eccoured: {http_err}')
     except Exception as err:
@@ -16,7 +16,7 @@ def isEndPointUp(log,endpoint):
             return True
 
     try:
-        get=requests.post(endpoint)
+        get=requests.post(endpoint, timeout=60)
     except HTTPError as http_err:
         print(f'HTTP error eccoured: {http_err}')
     except Exception as err:
@@ -26,7 +26,7 @@ def isEndPointUp(log,endpoint):
             return True
     
     try:
-        get=requests.head(endpoint)
+        get=requests.head(endpoint, timeout=60)
     except HTTPError as http_err:
         print(f'HTTP error eccoured: {http_err}')
     except Exception as err:
@@ -36,7 +36,7 @@ def isEndPointUp(log,endpoint):
             return True
     
     try:
-        get=requests.options(endpoint)
+        get=requests.options(endpoint, timeout=60)
     except HTTPError as http_err:
         print(f'HTTP error eccoured: {http_err}')
     except Exception as err:
@@ -46,7 +46,7 @@ def isEndPointUp(log,endpoint):
             return True
     
     try:
-        get=requests.put(endpoint)
+        get=requests.put(endpoint, timeout=60)
     except HTTPError as http_err:
         print(f'HTTP error eccoured: {http_err}')
     except Exception as err:
@@ -56,7 +56,7 @@ def isEndPointUp(log,endpoint):
             return True
     
     try:
-        get=requests.patch(endpoint)
+        get=requests.patch(endpoint, timeout=60)
     except HTTPError as http_err:
         print(f'HTTP error eccoured: {http_err}')
     except Exception as err:
@@ -66,7 +66,7 @@ def isEndPointUp(log,endpoint):
             return True
     
     try:
-        get=requests.delete(endpoint)
+        get=requests.delete(endpoint, timeout=60)
     except HTTPError as http_err:
         print(f'HTTP error eccoured: {http_err}')
     except Exception as err:
