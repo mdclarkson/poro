@@ -1,12 +1,13 @@
 # Test an API endpoint to check for a valid response (not 404)
 import requests
 from requests.models import HTTPError
+from security import safe_requests
 
 
 def isEndPointUp(log,endpoint):
     log.info("[isEndPointUp] Start")
     try:
-        get=requests.get(endpoint)
+        get=safe_requests.get(endpoint)
     except HTTPError as http_err:
         print(f'HTTP error eccoured: {http_err}')
     except Exception as err:
